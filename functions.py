@@ -19,7 +19,7 @@ def get_my_ac_by_id(ac_id: int) -> requests.Response:
     return res
 
 
-def get_all_ac_list(ac_type: int, param: int) -> requests.Response:
+def get_all_ac_list(ac_type: int, param: int=1234) -> requests.Response:
     parameters: Dict =  {
                         'type' : str(ac_type),
                         'param' : str(param)

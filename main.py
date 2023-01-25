@@ -6,9 +6,11 @@ import requests
 
 
 if __name__ == "__main__":
-    for i in range(0, 1236):
-        print(i)
-        resp = get_all_ac_list(6, 1234)
-        print(resp.status_code)
-        print_pretty(resp)
+    r = get_all_ac_list(5)
+    while True:
+        resp = get_all_ac_list(5)
+        if resp.text != r.text:
+            print(time.ctime())
+            print_pretty(resp)
+            r = resp
         time.sleep(2)
