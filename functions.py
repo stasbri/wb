@@ -11,12 +11,20 @@ def get_my_ac_list() -> requests.Response:
     res: requests.Response = requests.get(url=MY_AC_LIST, headers=authorization_header)
     return res
 
-def get_all_ac_list(ac_type: int) ->requests.Response:
-    params: Dict =  {
+def get_my_ac_by_id(ac_id: int) -> requests.Response:
+    parameters: Dict =  {
+                            'id' : str(ac_id)
+                        }
+    res: requests.Response = requests.get(url=MY_AC_BY_ID, params=parameters, headers=authorization_header)
+    return res
+
+
+def get_all_ac_list(ac_type: int, param: int) -> requests.Response:
+    parameters: Dict =  {
                         'type' : str(ac_type),
-                        'param' : '1234'
+                        'param' : str(param)
                     }
-    res: requests.Response = requests.get(url=ALL_ADS_LIST, params=params, headers=authorization_header)
+    res: requests.Response = requests.get(url=ALL_ADS_LIST, params=parameters, headers=authorization_header)
     return res
 
 def print_pretty(arg:requests.Response):
