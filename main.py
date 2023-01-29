@@ -17,6 +17,7 @@ def looper():
         log_functions.log_update_add(test_id, update_add(test_id, new_price=10, id_type=5, id_param=224), 10)
         log_functions.log_cur_positions(get_prices_and_places_by_vendor_code(142818303), 142818303)
         log_functions.log_cur_positions_by_keywords(get_prices_and_places_by_keywords("куртка весенняя женская"), "куртка весенняя женская")
+        log_functions.log_cur_positions_by_keywords(get_prices_and_places_by_keywords("куртка"),"куртка")
         time.sleep(60)
 
 
