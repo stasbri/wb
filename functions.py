@@ -23,9 +23,19 @@ def get_all_ac_list(ac_type: int, param: int=1234) -> requests.Response:
     parameters: Dict =  {
                         'type' : str(ac_type),
                         'param' : str(param)
-                    }
+                        }
     res: requests.Response = requests.get(url=ALL_ADS_LIST, params=parameters, headers=authorization_header)
     return res
+
+def update_add(add_id: int, new_price: int, id_type: int, id_param: int):
+    parameters: Dict =  {
+                        "advertId": add_id,
+                        "type": id_type,
+                        "cpm": new_price,
+                        "param": id_param
+                        }
+    return requests.post(url=UPDATE_ADD, params=parameters, headers=authorization_header, timeout=10).status_code
+
 
 def print_pretty(arg:requests.Response):
     print(json.dumps(json.loads(arg.text), indent=4))
